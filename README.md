@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![RefyneAI Logo](icon48.png)
+![RefyneAI Logo]
 
 **Transform basic prompts into powerful AI requests**
 
@@ -243,7 +243,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/SohamDalal07/RefyneAi/issues)
 - **Email**: smdalal.ac@gmail.com
-- **Website**: Coming soon
+- **Website**: https://web-refyne-ai12044-rbqqub9g5-code-play2.vercel.app/
 
 ---
 
