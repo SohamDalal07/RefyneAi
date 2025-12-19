@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RefyneAI Setup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+        }
+
+        .logo-r {
+            font-size: 56px;
+            font-weight: 800;
+        }
+
+        .logo-ai {
+            font-size: 32px;
+            font-weight: 700;
+            bottom: 0;
+        }
+
+        .logo-full {
+            font-size: 40px;
+            font-weight: 700;
+            margin-left: 12px;
+            opacity: 0.9;
+        }
+
+        .logo p {
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .welcome p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: #666;
+            background: #222;
+        }
+
+        .hint {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .hint a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .provider-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .provider-links a {
+            color: #0a84ff;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .provider-links a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #f0f0f0;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .success h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .success p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 24px;
+        }
+
+        .error {
+            display: none;
+            background: #ff4444;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .provider-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1><span class="logo-r"></span><sub class="logo-ai"></sub> <span class="logo-full">RefyneAI</span></h1>
+            <p>Automatic prompt refinement</p>
+        </div>
+
+        <div id="setupForm">
+            <div class="welcome">
+                <h2>Configure Your AI Provider</h2>
+                <p>Choose your preferred AI provider and enter your API key. All providers offer free tiers to get
+                    started.</p>
+            </div>
+
+            <div class="error" id="error"></div>
+
+            <form id="apiKeyForm">
+                <div class="form-group">
+                    <label for="provider">AI Provider</label>
+                    <select id="provider" required>
+                        <option value="gemini">Google Gemini</option>
+                        <option value="openai">OpenAI GPT</option>
+                        <option value="claude">Anthropic Claude</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="apiKey" id="apiKeyLabel">API Key</label>
+                    <input type="text" id="apiKey" placeholder="Enter your API key" required autocomplete="off">
+                    <p class="hint" id="apiKeyHint">
+                        Your API key is stored locally and never shared.
+                    </p>
+                    <div class="provider-links" id="providerLinks">
+                        <a href="https://aistudio.google.com/app/apikey" target="_blank" id="geminiLink">Get Gemini API
+                            key (free)</a>
+                        <a href="https://platform.openai.com/api-keys" target="_blank" id="openaiLink"
+                            style="display:none">Get OpenAI API key</a>
+                        <a href="https://console.anthropic.com/account/keys" target="_blank" id="claudeLink"
+                            style="display:none">Get Claude API key</a>
+                    </div>
+                </div>
+
+                <div class="form-group" id="modelGroup" style="display:none">
+                    <label for="model">Model (Optional)</label>
+                    <select id="model">
+                        <option value="">Default</option>
+                    </select>
+                    <p class="hint">Leave as default for best results</p>
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    Verify & Save
+                </button>
+            </form>
+        </div>
+
+        <div class="success" id="success">
+            <div class="success-icon">✓</div>
+            <h3>All Set!</h3>
+            <p>RefyneAI is ready to refine your prompts on Gemini, Claude, and other platforms.</p>
+            <span class="provider-badge" id="selectedProvider"></span>
+            <button id="closeBtn">Close Tab</button>
+        </div>
+    </div>
+
+    <script src="setup.js"></script>
+</body>
+
+</html>

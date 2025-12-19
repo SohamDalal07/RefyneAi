@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RefyneAI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <h1><span class="brand-r"></span><sub class="brand-ai"></sub> <span class="brand-full">RefyneAI</span></h1>
+        <p class="tagline">Intelligent Prompt Refinement</p>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span class="status-text">Active</span>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>API Configuration</h3>
+          <div class="api-status">
+            <span id="apiKeyStatus" class="status-value">Checking...</span>
+            <a href="setup.html" target="_blank" id="apiKeyLink" class="action-link">Manage</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Supported Platforms</h3>
+          <div class="platform-list">
+            <span class="platform-item active">Gemini</span>
+            <span class="platform-item active">Claude</span>
+            <span class="platform-item active">Perplexity</span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="features-section">
+        <h3>Automatic Features</h3>
+        <ul class="feature-list">
+          <li>
+            <span class="feature-icon">AI</span>
+            <div class="feature-content">
+              <strong>Intent Detection</strong>
+              <span>Recognizes coding, academic, or general prompts</span>
+            </div>
+          </li>
+          <li>
+            <span class="feature-icon">⚡</span>
+            <div class="feature-content">
+              <strong>Smart Refinement</strong>
+              <span>AI for complex, rules for simple prompts</span>
+            </div>
+          </li>
+          <li>
+            <span class="feature-icon">⚙</span>
+            <div class="feature-content">
+              <strong>Zero Configuration</strong>
+              <span>Works automatically, no setup needed</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-info">
+        <p>To disable, turn off the extension in <code>chrome://extensions/</code></p>
+        <p class="version">Version 1.0.0</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

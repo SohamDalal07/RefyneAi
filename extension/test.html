@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RefyneAI Script Test</title>
+</head>
+
+<body>
+    <h1>RefyneAI Script Loading Test</h1>
+    <div id="results"></div>
+
+    <script src="config.js"></script>
+    <script src="policies.js"></script>
+    <script src="templates.js"></script>
+    <script src="analyzer.js"></script>
+    <script src="refiner.js"></script>
+    <script src="cache.js"></script>
+    <script src="ai-provider.js"></script>
+    <script src="hybrid-refiner.js"></script>
+
+    <script>
+        const results = document.getElementById('results');
+
+        function test(name, value) {
+            const div = document.createElement('div');
+            div.style.padding = '10px';
+            div.style.margin = '5px';
+            div.style.border = '1px solid #ccc';
+
+            if (value !== undefined) {
+                div.style.backgroundColor = '#d4edda';
+                div.innerHTML = `✅ <strong>${name}</strong>: Loaded`;
+            } else {
+                div.style.backgroundColor = '#f8d7da';
+                div.innerHTML = `❌ <strong>${name}</strong>: NOT LOADED`;
+            }
+
+            results.appendChild(div);
+        }
+
+        test('RefyneAIConfig', window.RefyneAIConfig);
+        test('PromptPolicies', window.PromptPolicies);
+        test('PromptTemplates', window.PromptTemplates);
+        test('PromptAnalyzer', window.PromptAnalyzer);
+        test('PromptRefiner', window.PromptRefiner);
+        test('PromptCache', window.PromptCache);
+        test('AIProvider', window.AIProvider);
+        test('GeminiProvider', window.GeminiProvider);
+        test('HybridRefiner', window.HybridRefiner);
+    </script>
+</body>
+
+</html>

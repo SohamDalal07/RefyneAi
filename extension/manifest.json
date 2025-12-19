@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "RefyneAI",
+  "version": "1.0.2",
+  "description": "Intelligent prompt refinement for AI platforms — invisible, intelligent, always-on.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*",
+    "https://claude.ai/*",
+    "https://www.perplexity.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://www.perplexity.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "refine-button.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "config.js",
+        "policies.js",
+        "templates.js",
+        "analyzer.js",
+        "refiner.js",
+        "cache.js",
+        "ai-provider.js",
+        "hybrid-refiner.js",
+        "page-bridge.js",
+        "refine-button.js",
+        "providers/base-provider.js",
+        "providers/gemini-provider.js",
+        "providers/openai-provider.js",
+        "providers/claude-provider.js"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
