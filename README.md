@@ -41,7 +41,7 @@ RefyneAI is a Chrome extension that uses AI to intelligently refine your prompts
 
 1. **Download the Extension**
    ```bash
-   git clone https://github.com/yourusername/refyneai.git
+   git clone https://github.com/SohamDalal07/RefyneAi.git
    cd refyneai
    ```
 
@@ -99,7 +99,7 @@ explanation of AI including:
 | **Google Gemini** | ✅ Full Support | Button + Modal |
 | **Anthropic Claude** | ✅ Full Support | Button + Modal |
 | **Perplexity AI** | ✅ Full Support | Button + Modal |
-| **ChatGPT** | ❌ Not Supported | Excluded to prevent conflicts |
+
 
 ---
 
@@ -209,7 +209,7 @@ refyneai/
 - ✅ Beautiful R<sub>AI</sub> branding
 - ✅ Provider retry logic for stability
 - ✅ Improved text extraction
-- ❌ Removed ChatGPT support (caused conflicts)
+
 
 ---
 
@@ -241,15 +241,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/refyneai/issues)
-- **Email**: your.email@example.com
+- **Issues**: [GitHub Issues](https://github.com/SohamDalal07/RefyneAi/issues)
+- **Email**: smdalal.ac@gmail.com
 - **Website**: Coming soon
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Your Name]**
+**Made with ❤️ by [Soham Dalal]**
 
 ⭐ Star this repo if you find it useful!
 
