@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![RefyneAI Logo](icon128.png)
+![RefyneAI Logo](icon48.png)
 
 **Transform basic prompts into powerful AI requests**
 
